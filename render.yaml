@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: expense-tracker-mcp
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: DB_PATH
+        value: /data/expenses.db
+    disk:
+      name: expense-data
+      mountPath: /data
+      sizeGB: 1
